@@ -5,10 +5,10 @@ const User = require("../../users/models/user.model");
 
 const authenticateUser = async (req, res) => {
   try {
-    const { email, password } = req.body;
+    const { username, password } = req.body;
 
     // Check if user with the email exists
-    const user = await User.findOne({ email });
+    const user = await User.findOne({ username });
     if (!user) {
       return res.status(401).json({ message: "Invalid email or password" });
     }
